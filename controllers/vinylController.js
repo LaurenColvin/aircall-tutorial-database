@@ -32,5 +32,16 @@ router.get('/:id', (req,res) => {
         ))
 })
 
+router.delete('/:id', (req,res) => {
+    Vinyl.findByIdAndDelete(req.params.id)
+        .then((vinyl =>
+            res.json ({
+                status: 200,
+                vinyl: vinyl,
+                msg: 'item deleted'
+            })
+        ))
+})
+
 
 module.exports = router;
