@@ -13,4 +13,13 @@ router.get('/', (req,res) => {
         ))
 })
 
+router.post("/", (req, res) => {
+    const data = req.body 
+    Vinyl.create(data)
+        .then((vinyl) => res.json({
+            status: 200,
+            vinyl: vinyl
+        }))
+})
+
 module.exports = router;
