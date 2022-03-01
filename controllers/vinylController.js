@@ -22,4 +22,15 @@ router.post("/", (req, res) => {
         }))
 })
 
+router.get('/:id', (req,res) => {
+    Vinyl.findById(req.params.id)
+        .then((vinyl =>
+            res.json ({
+                status: 200,
+                vinyl: vinyl
+            })
+        ))
+})
+
+
 module.exports = router;
