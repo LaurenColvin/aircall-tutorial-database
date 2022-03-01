@@ -43,5 +43,15 @@ router.delete('/:id', (req,res) => {
         ))
 })
 
+router.put("/:id", (req, res) => {
+    Vinyl.findByIdAndUpdate(req.params.id, req.body, { new: true })
+        .then((vinyl) => {
+            res.json({
+                status: 200,
+                vinyl: vinyl,
+            });
+        });
+  });
+
 
 module.exports = router;
