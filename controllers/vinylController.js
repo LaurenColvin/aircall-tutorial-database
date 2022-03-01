@@ -4,7 +4,13 @@ const Vinyl = require('../models/Vinyl.js')
 const router = express.Router();
 
 router.get('/', (req,res) => {
-    res.send('hello from vinyls!')
+    Vinyl.find()
+        .then((vinyls =>
+            res.json ({
+                status: 200,
+                vinyls: vinyls
+            })
+        ))
 })
 
 module.exports = router;
